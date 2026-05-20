@@ -3,9 +3,11 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
+import Services from './components/Services'
+import Skills from './components/Skills'
 import Projects from './components/Projects'
-import Achievements from './components/Achievements'
 import Contact from './components/Contact'
+import Footer from './components/Footer'
 
 function App() {
   const [mounted, setMounted] = useState(false);
@@ -14,7 +16,7 @@ function App() {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null; // Prevent hydration flash
+  if (!mounted) return null;
 
   return (
     <div className="app-container">
@@ -22,9 +24,11 @@ function App() {
       <main className="main-content">
         <Hero />
         <About />
+        <Services />
+        <Skills />
         <Projects />
-        <Achievements />
         <Contact />
+        <Footer />
       </main>
     </div>
   )

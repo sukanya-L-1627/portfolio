@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import resumeFile from '../assets/L.Sukanya__Resume.pdf';
+import { Menu, X } from 'lucide-react';
 import './Navbar.css';
-
-import { motion } from 'framer-motion';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -15,28 +14,39 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const navLinks = [
+        { name: 'Home', href: '#home' },
+        { name: 'About', href: '#about' },
+        { name: 'Services', href: '#services' },
+        { name: 'Skills', href: '#skills' },
+        { name: 'Portfolio', href: '#portfolio' },
+        { name: 'Contact', href: '#contact' }
+    ];
+
     return (
-        <motion.nav
-            className={`navbar ${scrolled ? 'nav-scrolled' : ''}`}
-            initial={{ y: -100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-            <div className="nav-container">
-                <div className="nav-brand text-gradient">L. Sukanya</div>
-                <div className="nav-menu">
+        <nav className={`navbar ${scrolled ? 'nav-scrolled' : ''}`}>
+            <div className="container nav-container">
+                <div className="nav-logo">
+                    <a href="#">L. SUKANYA<span></span></a>
+                </div>
+
+                <div className={`nav-links-wrapper ${isMenuOpen ? 'open' : ''}`}>
                     <ul className="nav-links">
-                        <li><a href="#about" className="nav-link">About</a></li>
-                        <li><a href="#skills" className="nav-link">Skills</a></li>
-                        <li><a href="#projects" className="nav-link">Projects</a></li>
-                        <li><a href="#contact" className="nav-link">Contact</a></li>
+                        {navLinks.map((link) => (
+                            <li key={link.name}>
+                                <a href={link.href} onClick={() => setIsMenuOpen(false)}>
+                                    {link.name}
+                                </a>
+                            </li>
+                        ))}
                     </ul>
-                    <a href={resumeFile} target="_blank" rel="noopener noreferrer" className="btn-resume">
-                        Resume
-                    </a>
+                </div>
+
+                <div className="nav-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                    {isMenuOpen ? <X size={30} color="white" /> : <Menu size={30} color="white" />}
                 </div>
             </div>
-        </motion.nav>
+        </nav>
     );
 };
 

@@ -1,22 +1,15 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  text-align: center;
+  width: 100%;
 }
 
 /* App wide structure */
 .app-container {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  width: 100%;
 }
 
 .main-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
-  padding: 4rem 2rem;
+  width: 100%;
 }
 
 section {

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Linkedin, Mail, Phone, Download, PlayCircle, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
 import profilePic from '../assets/profile.jpg';
-import resumeFile from '../assets/L.Sukanya__Resume.pdf';
+import cleanPortrait from 'C:/Users/HP/.gemini/antigravity/brain/ba405f00-f8b3-4f4e-a591-cf8a78088972/sukanya_professional_portrait_clean_1778955233746.png';
+import resume from '../assets/L.Sukanya__Resume.pdf';
 import './Hero.css';
 
 const Hero = () => {
-    const roles = ["ML Engineer", "Prompt Engineer", "Gen AI Engineer", "Agentic AI Developer"];
+    const roles = ["Web Designer", "Front-end Developer", "UI/UX Designer"];
     const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
     const [displayText, setDisplayText] = useState("");
     const [isDeleting, setIsDeleting] = useState(false);
@@ -37,84 +37,58 @@ const Hero = () => {
     }, [displayText, isDeleting, currentRoleIndex, roles, typingSpeed]);
 
     return (
-        <section id="home" className="hero-section">
-            {/* Background Orbs */}
-            <div className="bg-orb orb-1"></div>
-            <div className="bg-orb orb-2"></div>
-
-            <div className="hero-container">
-                <div className="hero-content">
+        <section id="home" className="hero-section hero-sinau-style">
+            <div className="container">
+                <div className="hero-row">
                     <motion.div
-                        className="hero-text"
+                        className="hero-content-sinau"
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <motion.h1
-                            className="hero-name text-gradient"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2, duration: 0.8 }}
-                        >
-                            Lambaday Sukanya
-                        </motion.h1>
-                        <motion.h2
-                            className="hero-role"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.4, duration: 0.8 }}
-                        >
-                            <span className="role-text">{displayText}</span>
-                            <span className="cursor-blink">|</span>
-                        </motion.h2>
-                        <motion.p
-                            className="hero-desc"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.6, duration: 0.8 }}
-                        >
-                            Building intelligent, data-driven systems with a focus on
-                            Deep Learning, NLP, and scalable AI solutions.
-                        </motion.p>
+                        <h1 className="sinau-heading">
+                            Your Vision,<span>My Innovation</span>
+                            <br />
 
-                        <motion.div
-                            className="hero-ctas"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.8, duration: 0.8 }}
-                        >
-                            <a href={resumeFile} target="_blank" rel="noopener noreferrer" className="btn-primary">
-                                <Download size={20} className="mr-2" /> View Resume
-                            </a>
-                            <a href="#contact" className="btn-secondary">Get in Touch</a>
-                        </motion.div>
+                        </h1>
+                        <p className="sinau-desc">
+                            Passionate AI/ML Engineer dedicated to building intelligent,
+                            data-driven systems. Specializing in Large Language Models (LLMs),
+                            RAG architectures, and scalable Machine Learning pipelines.
+                        </p>
+                        <div className="sinau-btns">
+                            <a href="#contact" className="btn-pink">HIRE ME</a>
+                            <a href={resume} target="_blank" rel="noopener noreferrer" className="btn-outline ml-3">VIEW RESUME</a>
+                        </div>
 
-                        <motion.div
-                            className="hero-social"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 1, duration: 0.8 }}
-                        >
-                            <a href="https://www.linkedin.com/in/sukanya27" target="_blank" rel="noopener noreferrer" className="social-icon">
-                                <Linkedin size={24} />
-                            </a>
-                            <a href="mailto:sukanyal1627@gmail.com" className="social-icon">
-                                <Mail size={24} />
-                            </a>
-                            <a href="tel:9491316259" className="social-icon">
-                                <Phone size={24} />
-                            </a>
-                        </motion.div>
                     </motion.div>
 
                     <motion.div
-                        className="hero-image"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8, delay: 0.4 }}
+                        className="hero-image-sinau"
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8 }}
                     >
-                        <div className="image-frame">
-                            <img src={profilePic} alt="Sukanya" />
+                        <div className="sinau-img-wrapper">
+                            <div className="pink-circle-bg"></div>
+                            <div className="portrait-container">
+                                <img src={profilePic} alt="Sukanya" />
+                            </div>
+
+                            {/* Floating Badges */}
+                            <motion.div
+                                className="sinau-badge badge-top"
+                                animate={{ y: [0, -10, 0] }}
+                                transition={{ duration: 3, repeat: Infinity }}
+                            >
+                                <div className="badge-icon">🤖</div>
+                                <div className="badge-info">
+                                    <h4>10+</h4>
+                                    <p>AI Agents</p>
+                                    <p>Enthusiast</p>
+                                </div>
+                            </motion.div>
+
                         </div>
                     </motion.div>
                 </div>

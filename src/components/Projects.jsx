@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import VideoModal from './VideoModal';
 import emotionVideo from '../assets/Intent & Emotion Intelligence System.mp4';
 import movieRecommendationVideo from '../assets/Movie_recommendation_System.mp4';
-
 import churnVideo from '../assets/Customer_churn_intelligence_system.mp4';
 import motoriqVideo from '../assets/MOTORIQ.mp4';
 import tripiqVideo from '../assets/TripIQ.mp4';
@@ -95,43 +94,48 @@ const Projects = () => {
     ];
 
     return (
-        <section id="projects" className="projects-section pt-20">
-            <h2 className="section-title">Projects</h2>
+        <section id="portfolio" className="portfolio-section section-padding">
+            <div className="container">
+                <div className="section-header">
+                    <h2>My Projects</h2>
+                    <p>Building intelligent, data-driven systems with a focus on Deep Learning, NLP, and scalable AI solutions.</p>
+                </div>
 
-            <div className="projects-grid">
-                {projectList.map((project, index) => (
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-50px" }}
-                        transition={{ duration: 0.6, delay: index * 0.1 }}
-                        key={project.id}
-                        className="project-compact-card glass-panel"
-                    >
-                        <div className="project-header-top">
-                            <span className="project-domain-badge">{project.domain}</span>
-                        </div>
+                <div className="projects-grid">
+                    {projectList.map((project, index) => (
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ duration: 0.6, delay: index * 0.1 }}
+                            key={project.id}
+                            className="project-compact-card"
+                        >
+                            <div className="project-header-top">
+                                <span className="project-domain-badge">{project.domain}</span>
+                            </div>
 
-                        <h3 className="project-card-title">{project.title}</h3>
-                        <p className="project-card-summary">{project.summary}</p>
+                            <h3 className="project-card-title">{project.title}</h3>
+                            <p className="project-card-summary">{project.summary}</p>
 
-                        <div className="project-tech-minimal">
-                            {project.tech.map((t, idx) => (
-                                <span key={idx} className="tech-pill">{t}</span>
-                            ))}
-                        </div>
+                            <div className="project-tech-minimal">
+                                {project.tech.map((t, idx) => (
+                                    <span key={idx} className="tech-pill">{t}</span>
+                                ))}
+                            </div>
 
-                        <div className="project-footer-demo">
-                            <button
-                                onClick={() => openVideo(project.video, project.title, project.description, project.icon)}
-                                className="btn-demo-link-btn"
-                            >
-                                <PlayCircle size={18} className="mr-2" />
-                                <span>Watch Video Demo</span>
-                            </button>
-                        </div>
-                    </motion.div>
-                ))}
+                            <div className="project-footer-demo">
+                                <button
+                                    onClick={() => openVideo(project.video, project.title, project.description, project.icon)}
+                                    className="btn-demo-link-btn"
+                                >
+                                    <PlayCircle size={18} className="mr-2" />
+                                    <span>Watch Video Demo</span>
+                                </button>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
             </div>
 
             <VideoModal
